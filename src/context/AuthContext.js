@@ -1,5 +1,7 @@
+import axios from "axios";
 import { createContext, useState, useEffect, useContext } from "react";
-import { userObserver } from "../auth/firebase";
+import { getPosts } from "../helpers/functions";
+
 
 export const AuthContext = createContext();
 
@@ -15,8 +17,11 @@ const AuthContextProvider = (props) => {
   uid:""
   })
 
+
+
   useEffect(() => {
-    userObserver(setCurrentUser);
+    // getPosts()
+    console.log(getPosts())
   }, []);
 
   return (
