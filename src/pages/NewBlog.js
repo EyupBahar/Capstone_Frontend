@@ -27,7 +27,7 @@ const NewBlog = () => {
   const { currentUser } = useContext(AuthContext);
   const classes = useStyles();
   const [title, setTitle] = useState();
-  const [imgUrl, setImgUrl] = useState();
+  const [image, setImage] = useState();
   const [content, setContent] = useState();
   const history = useHistory();
 
@@ -35,12 +35,12 @@ const NewBlog = () => {
     e.preventDefault();
     // addInfo({
     //   title: title,
-    //   imgUrl: imgUrl,
+    //   image: image,
     //   content: content,
     //   author: currentUser.email,
     // });
     setTitle("");
-    setImgUrl("");
+    setImage("");
     setContent("");
     history.push("/");
   };
@@ -63,12 +63,12 @@ const NewBlog = () => {
       />
       <br />
       <TextField
-        value={imgUrl}
+        value={image}
         placeholder="Img URL"
         id="filled-basic"
         label="Image URL"
         variant="outlined"
-        onChange={(e) => setImgUrl(e.target.value)}
+        onChange={(e) => setImage(e.target.value)}
       />
       <br />
       <TextField

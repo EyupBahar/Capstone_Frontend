@@ -27,7 +27,7 @@ const UpdateBlog = () => {
   const [post, setPost] = React.useState({
     title: "",
     author: "",
-    imgUrl: "",
+    image: "",
     content: "",
   });
   const { currentUser } = useContext(AuthContext);
@@ -64,12 +64,12 @@ const UpdateBlog = () => {
       />
       <br />
       <TextField
-        value={post.imgUrl}
+        value={post.image}
         placeholder="Img URL"
         id="filled-basic"
         label="Image URL"
         variant="outlined"
-        onChange={(e) => setPost({ ...post, imgUrl: e.target.value })}
+        onChange={(e) => setPost({ ...post, image: e.target.value })}
       />
       <br />
       <TextField

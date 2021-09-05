@@ -48,7 +48,7 @@ export default function Details() {
   const [post, setPost] = React.useState({
     title: "",
     author: "",
-    imgUrl: "",
+    image: "",
     content: "",
   });
   const currentUser = useContext(AuthContext);
@@ -80,7 +80,7 @@ export default function Details() {
             paddingTop: "56.25%",
           }}
         >
-          <img className={classes.image} src={post.imgUrl} alt="card_media"/>
+          <img className={classes.image} src={post.image} alt="card_media"/>
         </CardMedia>
         <div style={{ color: "white", fontWeight: "bold", fontSize: "30px" }}>
           {post.title}

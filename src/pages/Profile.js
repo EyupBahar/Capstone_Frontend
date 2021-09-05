@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Profile = () => {
-  const history = useHistory();
+  // const history = useHistory();
   const classes = useStyles();
 
   return (
