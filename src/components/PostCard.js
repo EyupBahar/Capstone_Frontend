@@ -10,7 +10,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
 import { makeStyles } from "@material-ui/core/styles";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import { useFetch } from "../auth/firebase";
+
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useHistory } from "react-router-dom";
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PostCard({ post }) {
-  const { blogList, isLoading } = useFetch();
+  // const { blogList, isLoading } = useFetch();
   const classes = useStyles();
   const history = useHistory();
   const currentUser = useContext(AuthContext);

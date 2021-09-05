@@ -9,7 +9,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { SignOut } from "../auth/firebase";
+
 import HomeIcon from "@material-ui/icons/Home";
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +39,7 @@ export default function NavBar() {
 
   const handleLogout = () => {
     handleClose();
-    SignOut(history);
+    // SignOut(history);
   };
 
   const handleMenu = (event) => {

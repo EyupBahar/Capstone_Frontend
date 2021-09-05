@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { useFetch } from "../auth/firebase";
 import PostCard from "./PostCard";
 import loading from "../assets/loading.png";
 
@@ -21,14 +20,14 @@ const useStyles = makeStyles((theme) => ({
 
 const PostContainer = () => {
 
-  const { blogList, isLoading } = useFetch();
+  // const { blogList, isLoading } = useFetch();
   const classes = useStyles();
 
   return (
     <div>
       <h1 style={{ color: "purple" }}> DASHBOARD </h1>
       <div className={classes.blogContainer}>
-        {isLoading ? (
+        {/* {isLoading ? (
           <img className={classes.image} src={loading} alt="loading" />
         ) : (
           <>
@@ -36,7 +35,7 @@ const PostContainer = () => {
               <PostCard post={item} key={index} />
             ))}
           </>
-        )}
+        )} */}
       </div>
     </div>
   );

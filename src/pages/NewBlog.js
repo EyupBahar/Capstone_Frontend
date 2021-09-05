@@ -4,7 +4,6 @@ import TextField from "@material-ui/core/TextField";
 import { useHistory } from "react-router";
 import Button from "@material-ui/core/Button";
 import blog from "../assets/blog.png";
-import { addInfo } from "../auth/firebase";
 import { AuthContext } from "../context/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -34,12 +33,12 @@ const NewBlog = () => {
 
   const handleForSubmit = (e) => {
     e.preventDefault();
-    addInfo({
-      title: title,
-      imgUrl: imgUrl,
-      content: content,
-      author: currentUser.email,
-    });
+    // addInfo({
+    //   title: title,
+    //   imgUrl: imgUrl,
+    //   content: content,
+    //   author: currentUser.email,
+    // });
     setTitle("");
     setImgUrl("");
     setContent("");

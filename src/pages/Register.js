@@ -9,7 +9,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import { createUser } from "../auth/firebase";
+
 import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,7 +46,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
 
   const handleRegister = () => {
-    createUser(email, password);
+    // createUser(email, password);
   };
 
   return (
@@ -62,9 +62,9 @@ export default function Register() {
         <form
           className={classes.form}
           noValidate
-          onSubmit={() =>
-            createUser(email, password, "John Doe", "xxx", "sdasd")
-          }
+          // onSubmit={() =>
+          //   createUser(email, password, "John Doe", "xxx", "sdasd")
+          // }
         >
           <TextField
             variant="outlined"

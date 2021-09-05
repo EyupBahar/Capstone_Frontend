@@ -9,7 +9,6 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import { SignIn, SignUpProvider } from "../auth/firebase";
 import { useHistory } from "react-router-dom";
 import google from "../assets/google.png"
 
@@ -47,10 +46,10 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    SignIn(email, password, history);
+    // SignIn(email, password, history);
   };
   const handleProvider = () => {
-    SignUpProvider();
+    // SignUpProvider();
     history.push("/");
   };
   return (

@@ -4,7 +4,6 @@ import TextField from "@material-ui/core/TextField";
 import { useParams, useHistory } from "react-router";
 import Button from "@material-ui/core/Button";
 import blog from "../assets/blog.png";
-import { updateHandler, getSingle } from "../auth/firebase";
 import { AuthContext } from "../context/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -38,12 +37,12 @@ const UpdateBlog = () => {
   const handleForSubmit = (e) => {
     e.preventDefault();
     post.id = id;
-    updateHandler(post);
+    // updateHandler(post);
     console.log(post);
   };
 
   useEffect(() => {
-    getSingle(id, setPost);
+    // getSingle(id, setPost);
   }, []);
 
   return (
