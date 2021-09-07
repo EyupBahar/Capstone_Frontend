@@ -1,31 +1,28 @@
-import axios from "axios";
 import { createContext, useState, useEffect, useContext } from "react";
 import { getPosts } from "../helpers/functions";
 
 
 export const AuthContext = createContext();
-
 export function useAuth() {
   return useContext(AuthContext);
 }
 
 const AuthContextProvider = (props) => {
-  const [currentUser, setCurrentUser] = useState({
-  displayName:"",
-  email:"",
-  date:"",
-  uid:""
-  })
-
-
+  const [currentBlogs, setCurrentBlogs] = useState([{
+  id:"",
+  title:"",
+  author:"",
+  content:"",
+  image:""
+  }])
 
   useEffect(() => {
-    // getPosts()
-    console.log(getPosts())
+    getPosts(setCurrentBlogs)
   }, []);
+  console.log(currentBlogs);
 
   return (
-    <AuthContext.Provider value={{ currentUser }}>
+    <AuthContext.Provider value={{ currentBlogs }}>
       {props.children}
     </AuthContext.Provider>
   );
