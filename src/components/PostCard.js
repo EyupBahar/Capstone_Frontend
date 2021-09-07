@@ -10,16 +10,18 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
 import { makeStyles } from "@material-ui/core/styles";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    backgroundColor: "#F3E6D3"
+  },
+  card: {
     maxWidth: 345,
     margin: theme.spacing(1),
-    backgroundColor: "#0B345B",
+    backgroundColor: "#F8CA9D",
     borderRadius: "10px",
     color: "white",
     user: {
@@ -39,32 +41,32 @@ export default function PostCard({ post }) {
   // const { blogList, isLoading } = useFetch();
   const classes = useStyles();
   const history = useHistory();
-  const currentUser = useContext(AuthContext);
+  // const currentBlog= useContext(AuthContext);
   
   const handleDetails = (id) => {
-    if (!currentUser?.currentUser?.uid) {
-      alert("Please Login for Details!");
-    } else {
+    // if (!currentBlog?.currentBlog?.id) {
+    //   alert("Please Login for Details!");
+    // } else {
       history.push(`/details/${id}`);
-    }
+    // }
   };
   
   return (
     <div>
-      <Card onDoubleClick={() => handleDetails(post.id)} className={classes.root} sx={{ maxWidth: 100 }}>
+      <Card onDoubleClick={() => handleDetails(post.id)} className={classes.card} sx={{ maxWidth: 100 }}>
         <CardMedia
           sx={{
             height: 0,
             paddingTop: "56.25%",
           }}
           >
-          <img className={classes.image} src={post.} alt="card_media"/>    
+          <img className={classes.image} src={post.image} alt="card_media"/>    
         </CardMedia>
         <div style={{ color: "white", fontWeight: "bold", fontSize: "30px" }}>
           {post.title}
         </div>
         <AccountCircleIcon
-          className={classes.user}
+          className={classes.author}
           sx={{ bgcolor: red[500] }}
           aria-label="recipe"
           ></AccountCircleIcon>
