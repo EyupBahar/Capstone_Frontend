@@ -20,10 +20,12 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
-    flexGrow: 1,
+    flexGrow: 15,
+    fontSize: 30,
+    fontWeight: "bolder", 
   },
   AppBar: {
-    backgroundColor: "#0B345B",
+    backgroundColor: "#F5835E",
   },
   item: {
     marginTop: theme.spacing(6),
