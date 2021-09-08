@@ -19,7 +19,8 @@ const AuthContextProvider = (props) => {
   useEffect(() => {
     getPosts(setCurrentBlogs)
   }, []);
-  console.log(currentBlogs);
+  // console.log(getPosts())
+  console.log(currentBlogs, "auth");
 
   return (
     <AuthContext.Provider value={{ currentBlogs }}>
