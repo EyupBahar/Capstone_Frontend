@@ -15,13 +15,15 @@ import { useParams, useHistory } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useEffect } from "react";
 import Button from "@material-ui/core/Button";
+import { useState } from "react";
+import { getPost } from "../helpers/functions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 1000,
     marginTop: theme.spacing(2),
     margin: "0 auto",
-    backgroundColor: "#0B345B",
+    backgroundColor: "#2b8980",
     borderRadius: "10px",
     color: "white",
     user: {
@@ -45,22 +47,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Details() {
-  const [post, setPost] = React.useState({
+  const { currentBlogs } = useContext(AuthContext);
+  const [post, setPost] = useState({
+    id: "",
     title: "",
     author: "",
     image: "",
     content: "",
   });
-  const currentUser = useContext(AuthContext);
-  if (post.author === currentUser.currentUser.email)
-    console.log("content is editable");
-  else console.log("this post is none of yours");
+  // const currentUser = useContext(AuthContext);
+  // if (post.author === currentUser.currentUser.email)
+  //   console.log("content is editable");
+  // else console.log("this post is none of yours");
   const { id } = useParams();
   const history = useHistory();
-  const classes = useStyles();
+  const classes = useStyles();  
 
   const HandleEdit = () => {
-    if (!currentUser?.currentUser?.uid) {
+    if (!currentBlogs?.currentBlogs?.id) {
       alert("Please Login for Edit!");
     } else {
       history.push(`/update-blog/${id}`);
@@ -68,7 +72,7 @@ export default function Details() {
   };
 
   useEffect(() => {
-    // getSingle(id, setPost);
+    getPost(id, setPost);
   }, []);
 
   return (
