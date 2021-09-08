@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   card: {
     maxWidth: 345,
     margin: theme.spacing(1),
-    backgroundColor: "#F8CA9D",
+    backgroundColor: "#2b8980",
     borderRadius: "10px",
     color: "white",
     user: {
