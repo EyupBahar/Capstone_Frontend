@@ -25,16 +25,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 const PostContainer = () => {
   const { currentBlogs } = useContext(AuthContext);
+  // console.log("pcontainers")
 
   // const { blogList, isLoading } = useFetch();
   const classes = useStyles();
 
   return (
     <div>
-      <h1 style={{ color: "#F5835E" }}> DASHBOARD </h1>
+      <h1 style={{ color: "#26655f" }}> DASHBOARD </h1>
       <div className={classes.blogContainer}>
             {currentBlogs?.map((item, index) => (
-              <PostCard post={item} key={index} />
+              <PostCard   post={item} key={index} />
             ))}
       </div>
     </div>
