@@ -10,9 +10,9 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
 import { makeStyles } from "@material-ui/core/styles";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
 import { useHistory } from "react-router-dom";
+// import { useContext } from "react";
+// import { AuthContext } from "../context/AuthContext";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,13 +26,12 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "10px",
     color: "black",
     transition: "0.3s",
-    width: 500,
+    Width: 500,
     // margin: "auto",
     boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
     "&:hover": {
     boxShadow: "0 16px 70px -12.125px rgba(0,0,0,0.3)"
     },
-    backgroundImage: url(${bakery})
     user: {
       paddingLeft: "0%",
       paddingTop: "56.25%",
@@ -47,11 +46,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PostCard({ post }) {
-  // const { blogList, isLoading } = useFetch();
   const classes = useStyles();
   const history = useHistory();
   // const currentBlog= useContext(AuthContext);
-  
   const handleDetails = (id) => {
     // if (!currentBlog?.currentBlog?.id) {
     //   alert("Please Login for Details!");

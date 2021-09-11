@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import PostCard from "./PostCard";
-import bakery from "../assets/bakery.png";
 // import loading from "../assets/loading.png";
 
 const useStyles = makeStyles((theme) => ({
@@ -19,13 +18,11 @@ const useStyles = makeStyles((theme) => ({
   image: {
     marginLeft: "30%",
   },
-
-
 }));
+
 const PostContainer = () => {
   const { currentBlogs } = useContext(AuthContext);
   // console.log("pcontainers")
-
   // const { blogList, isLoading } = useFetch();
   const classes = useStyles();
 
@@ -36,7 +33,7 @@ const PostContainer = () => {
             {currentBlogs?.map((item, index) => (
               <PostCard   post={item} key={index} />
             ))}
-      </div>
+      </div>  
     </div>
   );
 };
