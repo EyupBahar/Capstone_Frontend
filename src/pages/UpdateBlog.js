@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const UpdateBlog = () => {
-  const [post, setPost] = React.useState({
+  const [post, setPost] = useState()({
     title: "",
     author: "",
     image: "",

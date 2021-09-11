@@ -9,6 +9,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { createUser } from "../helpers/functions";
 
 // import { useHistory } from "react-router-dom";
 
@@ -46,7 +47,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
 
   const handleRegister = () => {
-    // createUser(email, password);
+    createUser({email, password});
   };
 
   return (

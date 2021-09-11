@@ -3,14 +3,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import PostCard from "./PostCard";
-// import background from "../assets/background.jpg";
+import bakery from "../assets/bakery.png";
 // import loading from "../assets/loading.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
-    margin: theme.spacing(1),
-    backgroundColor: "white",
+    margin: theme.spacing(1), 
   },
   blogContainer: {
     marginLeft: 170,
