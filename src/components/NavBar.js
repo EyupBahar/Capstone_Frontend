@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bolder", 
   },
   AppBar: {
-    backgroundColor: "#26655f",
+    backgroundColor: "#008080",
   },
   item: {
     marginTop: theme.spacing(6),
