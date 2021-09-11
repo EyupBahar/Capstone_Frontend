@@ -14,24 +14,33 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useHistory } from "react-router-dom";
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "#F3E6D3"
   },
   card: {
-    maxWidth: 345,
-    margin: theme.spacing(1),
-    backgroundColor: "#2b8980",
+    width: 500,
+    margin: theme.spacing(5),
+    // backgroundColor: "#00CCCC",
     borderRadius: "10px",
-    color: "white",
+    color: "black",
+    transition: "0.3s",
+    width: 500,
+    // margin: "auto",
+    boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
+    "&:hover": {
+    boxShadow: "0 16px 70px -12.125px rgba(0,0,0,0.3)"
+    },
+    backgroundImage: url(${bakery})
     user: {
       paddingLeft: "0%",
       paddingTop: "56.25%",
     },
   },
   image: {
-    borderRadius: "50%",
-    maxWidth: 200,
+    // borderRadius: "50%",
+    width: "auto",
     height: 220,
     padding: 10,
   },
