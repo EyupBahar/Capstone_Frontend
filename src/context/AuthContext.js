@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { getPosts } from "../helpers/functions";
 
-
 export const AuthContext = createContext();
 export function useAuth() {
   return useContext(AuthContext);

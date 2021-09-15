@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { createUser } from "../helpers/functions";
+import { useHistory } from "react-router";
 
 // import { useHistory } from "react-router-dom";
 
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 // const handleProvider = () => {
 //   SignUpProvider();
-//   history.push("/");
+  // history.push("/");
 // };
 export default function Register() {
   const classes = useStyles();

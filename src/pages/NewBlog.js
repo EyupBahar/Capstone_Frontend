@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import Button from "@material-ui/core/Button";
 import blog from "../assets/blog.png";
 import { AuthContext } from "../context/AuthContext";
+import { createPost } from "../helpers/functions";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NewBlog = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentBlogs } = useContext(AuthContext);
   const classes = useStyles();
   const [title, setTitle] = useState();
   const [image, setImage] = useState();
@@ -33,15 +34,16 @@ const NewBlog = () => {
 
   const handleForSubmit = (e) => {
     e.preventDefault();
-    // addInfo({
-    //   title: title,
-    //   image: image,
-    //   content: content,
-    //   author: currentUser.email,
-    // });
+    createPost({
+      title: title,
+      image: image,
+      content: content,
+      author: currentBlogs.email,
+    });
     setTitle("");
     setImage("");
     setContent("");
+    // createPost();
     history.push("/");
   };
   return (

@@ -8,18 +8,15 @@ export const getPosts = async(setCurrentBlogs) => {
         setCurrentBlogs(data)
     } catch (error) {
         console.error(error.response.data.detail? error.response.data.detail: error.response.statusText)
-    }
-    
+    } 
 }   
-
 export const getPost = async(id, setPost) => {
     try {
         const {data} = await axios.get(POST_URL + id + "/")
         setPost(data)
     } catch (error) {
         console.error(error.response.data.detail? error.response.data.detail: error.response.statusText)
-    }
-    
+    }   
 }   
 export const getLogin = async(body) => {
     try {
@@ -27,16 +24,21 @@ export const getLogin = async(body) => {
         console.log(data);
     } catch (error) {
         console.error(error.response.data.detail? error.response.data.detail: error.response.statusText)
-    }
-    
+    }  
 }
-
 export const createUser = async(body) => {
+    try {
+        const {data} = await axios.post(POSTS_URL, body)
+        console.log(data);
+    } catch (error) {
+        console.error(error.response.data.detail? error.response.data.detail: error.response.statusText)
+    }   
+}
+export const createPost = async(body) => {
     try {
         const {data} = await axios.post(REGISTER_URL, body)
         console.log(data);
     } catch (error) {
         console.error(error.response.data.detail? error.response.data.detail: error.response.statusText)
-    }
-    
+    }  
 }   

@@ -14,7 +14,6 @@ import { useHistory } from "react-router-dom";
 // import { useContext } from "react";
 // import { AuthContext } from "../context/AuthContext";
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "#F3E6D3"

@@ -50,7 +50,6 @@ const Login = () => {
     e.preventDefault();
     getLogin({username:email, email, password})
     history.push("/");
-    
   };
   const handleProvider = () => {
     // SignUpProvider();
