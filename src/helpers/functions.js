@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useHistory } from "react-router";
 import { LOGIN_URL, POSTS_URL, POST_URL, REGISTER_URL } from "./urls";
 
 
@@ -20,11 +21,13 @@ export const getPost = async(id, setPost) => {
         console.error(error.response.data.detail? error.response.data.detail: error.response.statusText)
     }   
 }   
-export const getLogin = async(body) => {
+export const getLogin = async(body, setCurrentUser) => {
     console.log(body,"get login çalıştı")
     try {
         const {data} = await axios.post(LOGIN_URL, body)
         console.log("datagetlogin", data);
+        setCurrentUser(data)
+        useHistory.push("/")
     } catch (error) {
         console.error(error.response.data.detail? error.response.data.detail: error.response.statusText)
     }  

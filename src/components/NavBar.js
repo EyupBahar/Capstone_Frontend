@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -38,6 +38,7 @@ export default function NavBar() {
   const open = Boolean(anchorEl);
   const { currentUser, setCurrentUser } = useContext(AuthContext);
 
+
   const handleLogout = () => {
     handleClose();
     // SignOut(history);
@@ -49,7 +50,10 @@ export default function NavBar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  
+
+  useEffect(() => {
+    setCurrentUser();
+  }, []) 
   
   return (
     <div className={classes.root}>
@@ -78,7 +82,7 @@ export default function NavBar() {
             <AccountCircle />
           </IconButton>
           <div>
-            {currentUser?.username ? (
+            {currentUser?.email ? (
               <Menu
                 className={classes.item}
                 id="menu-appbar"
