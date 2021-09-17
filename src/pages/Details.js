@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "0%",
       paddingTop: "56.25%",
     },
+
   },
   image: {
     borderRadius: "50%",

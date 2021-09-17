@@ -32,28 +32,29 @@ const NewBlog = () => {
   const [content, setContent] = useState();
   const history = useHistory();
 
-  const handleForSubmit = (e) => {
-    e.preventDefault();
+  const handleForSubmit = () => {
+    // e.preventDefault();
+    console.log(title,image,content)
     createPost({
-      title: title,
-      image: image,
-      content: content,
-      author: currentBlogs.email,
-    });
-    setTitle("");
-    setImage("");
-    setContent("");
-    // createPost();
+      title,
+      image,
+      content,
+    }, history);
+
+    // setTitle("");
+    // setImage("");
+    // setContent("");
     history.push("/");
+    // createPost();
   };
+
   return (
     <form
       className={classes.paper}
       noValidate
       autoComplete="off"
-      onSubmit={handleForSubmit}
     >
-      <img src={blog} alt="blog" className={classes.img} />
+      <img src={blog} alt="blog" className={classes.image} />
       <br />
       <TextField
         value={title}
@@ -66,7 +67,7 @@ const NewBlog = () => {
       <br />
       <TextField
         value={image}
-        placeholder="Img URL"
+        placeholder="Image URL"
         id="filled-basic"
         label="Image URL"
         variant="outlined"
@@ -83,13 +84,12 @@ const NewBlog = () => {
       />
       <br />
       <Button
-        type="submit"
         fullWidth
         variant="contained"
-        color="primary"
+        color="#008080"
         className={classes.submit}
         value="Login"
-        onSubmit={handleForSubmit}
+        onClick={handleForSubmit}
       >
         Add New Blog
       </Button>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -13,6 +13,7 @@ import { useHistory } from "react-router-dom";
 import google from "../assets/google.png"
 import axios from "axios";
 import { getLogin } from "../helpers/functions";
+import { AuthContext } from "../context/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -31,8 +32,11 @@ const useStyles = makeStyles((theme) => ({
   },
   submit_google: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: "white",
+    backgroundColor: "#008080",
     color:"black",
+  },
+  submit: {
+    backgroundColor:"#008080",
   },
   img :{
     paddingLeft: theme.spacing(2),
@@ -43,17 +47,18 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
   const history = useHistory();
   const classes = useStyles();
+  // const [username, setUsername] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {setCurrentUser } = useContext(AuthContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    getLogin({username:email, email, password})
+    getLogin({email, password}, setCurrentUser);
     history.push("/");
   };
-  const handleProvider = () => {
-    // SignUpProvider();
-  };
+  console.log(setCurrentUser);
+  
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -97,7 +102,7 @@ const Login = () => {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="secondary"
             className={classes.submit}
             value="Login"
             onClick={handleLogin}
@@ -110,15 +115,12 @@ const Login = () => {
             variant="contained"
             color="secondary"
             className={classes.submit_google}
-            onClick={handleProvider}
+            // onClick={handleProvider}
             >
             Continue with<img className={classes.img} src={google} alt="google" />
           </Button>
         </form>
       </div>
-      {/* <div className="form-image">
-        <img src={"https://picsum.photos/1200/900"} alt="sample" />
-      </div> */}
     </Container>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SaveOutlinedIcon from "@material-ui/icons/SaveOutlined";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -11,8 +11,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { createUser } from "../helpers/functions";
 import { useHistory } from "react-router";
-
-// import { useHistory } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -34,24 +33,31 @@ const useStyles = makeStyles((theme) => ({
     width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
-  submit: {
+  Button: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor : "#008080",
+    
   },
 }));
+
 // const handleProvider = () => {
 //   SignUpProvider();
   // history.push("/");
 // };
 export default function Register() {
+
   const classes = useStyles();
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {setCurrentUser } = useContext(AuthContext);
 
   const handleRegister = () => {
-    createUser({email, password});
+    createUser({username, email, password}, setCurrentUser);
+    console.log((username, email, password, setCurrentUser), "Registerdan gelen")
   };
 
-  return (
+  return (    
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -64,10 +70,19 @@ export default function Register() {
         <form
           className={classes.form}
           noValidate
-          // onSubmit={() =>
-          //   createUser(email, password, "John Doe", "xxx", "sdasd")
-          // }
         >
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            label="Username"
+            type="username"
+            id="username"
+            autoComplete="username"
+            autoFocus
+            onChange={(e) => setUsername(e.target.value)}
+          />
           <TextField
             variant="outlined"
             margin="normal"
@@ -97,11 +112,9 @@ export default function Register() {
             label="Remember me"
           />
           <Button
-            type="submit"
+            className={classes.Button}
             fullWidth
             variant="contained"
-            color="primary"
-            className={classes.submit}
             value="register"
             onClick={handleRegister}
           >

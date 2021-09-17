@@ -5,7 +5,9 @@ import bakery from "../assets/bakery.png";
 
 const useStyles = makeStyles((theme) => ({
   dashboard:{
-    // backgroundImage: `url(${bakery})`,
+    backgroundImage: `url(${bakery})`,
+    // backgroundColor: "#bfefff",
+    color: "#ACB4BA",
   },
 }));
 
