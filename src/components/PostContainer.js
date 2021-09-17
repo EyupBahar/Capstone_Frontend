@@ -8,7 +8,7 @@ import PostCard from "./PostCard";
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
-    margin: theme.spacing(1), 
+    margin: theme.spacing(1),
   },
   blogContainer: {
     marginLeft: 170,

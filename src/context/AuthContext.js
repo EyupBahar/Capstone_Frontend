@@ -14,15 +14,17 @@ const AuthContextProvider = (props) => {
   content:"",
   image:""
   }])
-
+  
+  const [currentUser, setCurrentUser] = useState({
+  
+  })
+  
   useEffect(() => {
-    getPosts(setCurrentBlogs)
+    getPosts(setCurrentBlogs) 
   }, []);
-  // console.log(getPosts())
-  console.log(currentBlogs, "auth");
 
   return (
-    <AuthContext.Provider value={{ currentBlogs }}>
+    <AuthContext.Provider value={{ currentBlogs, setCurrentUser, currentUser }}>
       {props.children}
     </AuthContext.Provider>
   );

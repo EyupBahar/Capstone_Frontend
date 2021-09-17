@@ -9,7 +9,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-
 import HomeIcon from "@material-ui/icons/Home";
 
 const useStyles = makeStyles((theme) => ({
@@ -37,21 +36,21 @@ export default function NavBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
 
   const handleLogout = () => {
     handleClose();
     // SignOut(history);
   };
-
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
+  
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  
+  
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.AppBar}>
@@ -79,7 +78,7 @@ export default function NavBar() {
             <AccountCircle />
           </IconButton>
           <div>
-            {currentUser?.email ? (
+            {currentUser?.username ? (
               <Menu
                 className={classes.item}
                 id="menu-appbar"

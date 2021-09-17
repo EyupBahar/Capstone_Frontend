@@ -16,12 +16,13 @@ import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "#F3E6D3"
+    backgroundColor: "#F3E6D3",
+    
   },
   card: {
     width: 500,
     margin: theme.spacing(5),
-    // backgroundColor: "#00CCCC",
+    backgroundColor: "white",
     borderRadius: "10px",
     color: "black",
     transition: "0.3s",
@@ -67,7 +68,7 @@ export default function PostCard({ post }) {
           >
           <img className={classes.image} src={post.image} alt="card_media"/>    
         </CardMedia>
-        <div style={{ color: "white", fontWeight: "bold", fontSize: "30px" }}>
+        <div style={{ color: "black", fontWeight: "bold", fontSize: "30px" }}>
           {post.title}
         </div>
         <AccountCircleIcon
@@ -83,10 +84,10 @@ export default function PostCard({ post }) {
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
-            <FavoriteIcon style={{ color: "white" }} />
+            <FavoriteIcon style={{ color: "#B0B4BC" }} />
           </IconButton>
           <IconButton aria-label="share">
-            <ChatBubbleIcon style={{ color: "white" }} />
+            <ChatBubbleIcon style={{ color: "#B0B4BC" }} />
           </IconButton>
         </CardActions>
       </Card>
