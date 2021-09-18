@@ -53,8 +53,9 @@ export default function NavBar() {
 
   useEffect(() => {
     setCurrentUser();
-  }, []) 
-  
+  }, [])
+
+  // console.log(setCurrentUser)
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.AppBar}>
