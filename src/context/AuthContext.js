@@ -16,7 +16,9 @@ const AuthContextProvider = (props) => {
   }])
   
   const [currentUser, setCurrentUser] = useState({
-  
+  username:"",
+  email:"",
+  password:""
   })
   
   useEffect(() => {
