@@ -10,6 +10,7 @@ import Menu from "@material-ui/core/Menu";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import HomeIcon from "@material-ui/icons/Home";
+import { getLogout } from "../helpers/functions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,24 +39,20 @@ export default function NavBar() {
   const open = Boolean(anchorEl);
   const { currentUser, setCurrentUser } = useContext(AuthContext);
 
-
-  const handleLogout = () => {
-    handleClose();
-    // SignOut(history);
+  const handleLogout = (token) => {
+    getLogout(token);
+    currentUser.token()
   };
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   useEffect(() => {
     setCurrentUser();
   }, [])
 
-  // console.log(setCurrentUser)
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.AppBar}>
@@ -73,6 +70,7 @@ export default function NavBar() {
           <Typography variant="h6" className={classes.title}>
             <code> JoKeR Design</code>
           </Typography>
+          { currentUser?.username ? <div> <p> Wellcome {currentUser.username} </p> </div> : undefined }
           <IconButton
             aria-label="account of current user"
             aria-controls="menu-appbar"
@@ -83,7 +81,7 @@ export default function NavBar() {
             <AccountCircle />
           </IconButton>
           <div>
-            {currentUser?.email ? (
+            {currentUser?.username ? (
               <Menu
                 className={classes.item}
                 id="menu-appbar"
