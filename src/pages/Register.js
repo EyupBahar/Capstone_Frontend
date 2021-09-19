@@ -57,7 +57,7 @@ export default function Register() {
     console.log((username, email, password, setCurrentUser), "Registerdan gelen")
   };
 
-  return (    
+  return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
