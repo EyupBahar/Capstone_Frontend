@@ -47,19 +47,18 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
   const history = useHistory();
   const classes = useStyles();
-  // const [username, setUsername] = useState("")
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const {setCurrentUser } = useContext(AuthContext);
 
-  const handleLogin = (e) => {
+  const handleLogin = async(e) => {
     e.preventDefault();
-    getLogin({email, password}, setCurrentUser);
+    await getLogin({username, password}, setCurrentUser);
+    console.log(username, password, "login sayfası");
     history.push("/");
   };
-  console.log(setCurrentUser);
+  // console.log(setCurrentUser, "login.js");
 
-  
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -76,12 +75,12 @@ const Login = () => {
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            id="username"
+            label="Username"
+            name="username"
+            autoComplete="username"
             autoFocus
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
             variant="outlined"
