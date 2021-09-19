@@ -29,23 +29,19 @@ const NewBlog = () => {
   const classes = useStyles();
   const [title, setTitle] = useState();
   const [image, setImage] = useState();
+  const [category, setCategory] = useState("");
   const [content, setContent] = useState();
   const history = useHistory();
 
-  const handleForSubmit = () => {
-    // e.preventDefault();
+  const handleForSubmit = async(e) => {
+    e.preventDefault();
     console.log(title,image,content)
     createPost({
       title,
       image,
       content,
     }, history);
-
-    // setTitle("");
-    // setImage("");
-    // setContent("");
     history.push("/");
-    // createPost();
   };
 
   return (
@@ -66,27 +62,39 @@ const NewBlog = () => {
       />
       <br />
       <TextField
-        value={image}
-        placeholder="Image URL"
-        id="filled-basic"
-        label="Image URL"
-        variant="outlined"
-        onChange={(e) => setImage(e.target.value)}
-      />
-      <br />
-      <TextField
         value={content}
-        placeholder="Content"
-        id="outlined-basic"
-        label="Content "
+        placeholder="Title"
+        id="standard-basic"
+        label="Content"
         variant="outlined"
         onChange={(e) => setContent(e.target.value)}
       />
       <br />
+      <TextField
+        value={category}
+        placeholder="Title"
+        id="standard-basic"
+        label="Category"
+        variant="outlined"
+        onChange={(e) => setCategory(e.target.value)}
+      />
+      <br />
+      <Button
+      variant="contained"
+      component="label"
+      color="secondary"
+      >
+      Upload File
+      <input
+        type="file"
+        hidden
+      />
+      </Button>
+      <br />
       <Button
         fullWidth
         variant="contained"
-        color="#008080"
+        color="secondary"
         className={classes.submit}
         value="Login"
         onClick={handleForSubmit}
